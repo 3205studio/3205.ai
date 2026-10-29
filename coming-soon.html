@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3205 STUDIO</title>
+<meta name="description" content="3205 Studio — Film. AI. Production. Coming soon.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="3205 STUDIO">
+<meta property="og:description" content="Film. AI. Production. Coming soon.">
+<meta property="og:url" content="https://3205.ai/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://3205.ai/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='26' fill='%23fff' text-anchor='middle'%3E32%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300;62..125,900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000;
+    --fg: #f2f0ea;
+    --dim: #6d6b66;
+    --line: #1f1f1f;
+    --accent: #ff3b1f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding: max(20px, env(safe-area-inset-top)) clamp(16px, 4vw, 56px) max(20px, env(safe-area-inset-bottom));
+  }
+  /* фоновая плёночная зернистость */
+  body::before {
+    content: "";
+    position: fixed; inset: -50%;
+    pointer-events: none;
+    opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1.2s steps(6) infinite;
+  }
+  @keyframes grain {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-3%, 2%); }
+    50% { transform: translate(2%, -3%); }
+    75% { transform: translate(-2%, -1%); }
+    100% { transform: translate(1%, 3%); }
+  }
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: clamp(10px, 1.1vw, 12px);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  header, footer {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  header { padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  footer { padding-top: 16px; border-top: 1px solid var(--line); }
+  .rec { display: inline-flex; align-items: center; gap: 10px; }
+  .rec i {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    animation: blink 1.6s ease-in-out infinite;
+  }
+  @keyframes blink { 50% { opacity: .15; } }
+
+  main {
+    flex: 1;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(32px, 8vh, 96px) 0;
+  }
+  h1 {
+    font-weight: 900;
+    font-stretch: 62%;
+    line-height: .8;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+  }
+  h1 .num {
+    display: block;
+    font-size: clamp(120px, 31vw, 520px);
+  }
+  h1 .word {
+    display: block;
+    font-weight: 300;
+    font-stretch: 125%;
+    font-size: clamp(22px, 6.2vw, 104px);
+    letter-spacing: .32em;
+    margin-top: .35em;
+    margin-right: -.32em;
+  }
+  .tag {
+    margin-top: clamp(28px, 6vh, 64px);
+    display: flex; flex-wrap: wrap; gap: .2em .9em;
+    font-weight: 900; font-stretch: 100%;
+    font-size: clamp(18px, 3vw, 40px);
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+  }
+  .tag span:nth-child(2) { color: var(--accent); }
+  .soon { margin-top: clamp(20px, 3vh, 32px); }
+
+  /* появление */
+  .reveal { opacity: 0; transform: translateY(18px); animation: in .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .25s; }
+  .d3 { animation-delay: .45s; } .d4 { animation-delay: .65s; }
+  @keyframes in { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; animation: none; }
+    body::before, .rec i { animation: none; }
+  }
+  @media (max-width: 480px) {
+    .hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="mono">
+    <span>3205.ai</span>
+    <span class="rec"><i></i>In production</span>
+  </header>
+
+  <main>
+    <h1>
+      <span class="num reveal d1">3205</span>
+      <span class="word reveal d2">Studio</span>
+    </h1>
+    <p class="tag reveal d3"><span>Film.</span><span>AI.</span><span>Production.</span></p>
+    <p class="soon mono reveal d4">Coming soon</p>
+  </main>
+
+  <footer class="mono">
+    <span>© <span id="y">2026</span> 3205 Studio</span>
+    <span class="hide-sm">Film · AI · Production</span>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
